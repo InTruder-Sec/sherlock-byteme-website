@@ -3,7 +3,7 @@ import React from "react";
 function Footer() {
   return (
     <div>
-      <div className="w-full text-center my-2 opacity-50 mt-32">
+      <div className="w-full text-center my-2 opacity-50 mt-32 -z-10">
         Made with 💚 by OWASP PCCOE
       </div>
     </div>

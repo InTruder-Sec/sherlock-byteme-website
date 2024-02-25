@@ -1,35 +1,46 @@
 import React, { useState } from "react";
 import logo from "./../../assets/images/logo-main.png";
 import { X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [isOpen, setisOpen] = useState(false);
   return (
     <div>
-      <div className="fixed top-0 w-full bg-black text-white p-4">
+      <div className="fixed top-0 w-full bg-black ease-in text-white p-4">
         <div className="w-full h-full hidden sm:flex justify-between items-center">
           <div className="logo">
             <img src={logo} alt="OWASP PCCOE" className="w-[135px] h-[50px]" />
           </div>
           <div className="flex justify-between items-center">
-            <div className="font-medium mx-4 text-lg cursor-pointer">About</div>
+            <Link to="/">
+              <div className="font-medium mx-4 text-lg cursor-pointer">
+                About
+              </div>
+            </Link>
             /
-            <div className="font-medium mx-4 text-lg cursor-pointer">
-              Sherlock
-            </div>
+            <Link to="/sherlock">
+              <div className="font-medium mx-4 text-lg cursor-pointer">
+                Sherlock
+              </div>
+            </Link>
             /
-            <div className="font-medium mx-4 text-lg cursor-pointer">
-              Byteme
-            </div>
+            <Link to="/byteme">
+              <div className="font-medium mx-4 text-lg cursor-pointer">
+                Byteme
+              </div>
+            </Link>
             /
-            <div className="font-medium mx-4 text-lg cursor-pointer">
-              Contact Us
-            </div>
+            <Link to="/feedback">
+              <div className="font-medium mx-4 text-lg cursor-pointer">
+                Feedback
+              </div>
+            </Link>
           </div>
         </div>
       </div>
       {/* Hamburger */}
-      <div className="sm:hidden fixed top-0 w-full bg-stone-950 text-white p-4">
+      <div className="sm:hidden fixed top-0 w-full bg-black text-white p-4">
         <div className="w-full h-full flex justify-between items-center">
           <div className="logo">
             <img src={logo} alt="OWASP PCCOE" className="w-[135px] h-[50px]" />
@@ -75,18 +86,38 @@ function Navbar() {
             >
               <X />
             </div>
-            <div className="font-medium mx-4 text-lg cursor-pointer my-10 mt-24">
-              About
-            </div>
-            <div className="font-medium mx-4 text-lg cursor-pointer my-10">
-              Sherlock
-            </div>
-            <div className="font-medium mx-4 text-lg cursor-pointer my-10">
-              Byteme
-            </div>
-            <div className="font-medium mx-4 text-lg cursor-pointer my-10">
-              Contact Us
-            </div>
+            <Link to="/">
+              <div
+                className="font-medium mx-4 text-lg cursor-pointer my-10 mt-24"
+                onClick={() => setisOpen(!isOpen)}
+              >
+                About
+              </div>
+            </Link>
+            <Link to="/sherlock">
+              <div
+                className="font-medium mx-4 text-lg cursor-pointer my-10"
+                onClick={() => setisOpen(!isOpen)}
+              >
+                Sherlock
+              </div>
+            </Link>
+            <Link to="/byteme">
+              <div
+                className="font-medium mx-4 text-lg cursor-pointer my-10"
+                onClick={() => setisOpen(!isOpen)}
+              >
+                Byteme
+              </div>
+            </Link>
+            <Link to="/feedback">
+              <div
+                className="font-medium mx-4 text-lg cursor-pointer my-10"
+                onClick={() => setisOpen(!isOpen)}
+              >
+                Feedback
+              </div>
+            </Link>
           </div>
         </div>
       </div>
