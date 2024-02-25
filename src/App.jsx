@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import Footer from "./components/global/Footer";
 import Home from "./pages/Landing";
@@ -7,13 +6,16 @@ import Sherlock from "./pages/Sherlock";
 import Feedback from "./pages/Feedback";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/global/Navbar";
+import Background from "./components/global/Background";
 
 function App() {
   return (
-    <>
-      Hello
+    <div className="relative z-0 bg-black w-screen h-screen">
       <BrowserRouter>
-        <div className="App">
+        <div className="relative -z-10">
+          <Background />
+        </div>
+        <div className="App static z-50 text-white">
           <Navbar />
 
           <Routes>
@@ -26,7 +28,7 @@ function App() {
           <Footer />
         </div>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 
