@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 function Navbar() {
   const [isOpen, setisOpen] = useState(false);
   return (
-    <div>
-      <div className="fixed top-0 w-full bg-black ease-in text-white p-4">
+    <div className="bg-white z-50">
+      <div className="fixed top-0 z-40 w-full bg-black ease-in text-white p-4">
         <div className="w-full h-full hidden sm:flex justify-between items-center">
           <div className="logo">
             <img src={logo} alt="OWASP PCCOE" className="w-[135px] h-[50px]" />
@@ -40,8 +40,8 @@ function Navbar() {
         </div>
       </div>
       {/* Hamburger */}
-      <div className="sm:hidden fixed top-0 w-full bg-black text-white p-4">
-        <div className="w-full h-full flex justify-between items-center">
+      <div className="sm:hidden z-50 fixed top-0 w-full bg-black text-white p-4">
+        <div className="w-full h-full flex justify-between items-center bg-black">
           <div className="logo">
             <img src={logo} alt="OWASP PCCOE" className="w-[135px] h-[50px]" />
           </div>
