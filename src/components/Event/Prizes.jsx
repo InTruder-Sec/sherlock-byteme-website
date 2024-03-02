@@ -1,7 +1,7 @@
 import React from "react";
 import Timeline from "./Timeline";
 
-function Prizes() {
+function Prizes(props) {
   return (
     <div className="flex mt-12 w-full">
       <Timeline color="from-green-400" />
@@ -17,9 +17,11 @@ function Prizes() {
             /> */}
           </div>
           <span className="block pb-12">
-            1st Prize : Rs 3,200/- <br />
-            2nd Prize: Rs 2,000/- <br />
-            3rd Prize : Rs 1,000/- <br />+ Goodies for participants
+            {props.details.prizes.map((prize, index) => (
+              <p key={index} className="">
+                {prize}
+              </p>
+            ))}
           </span>
         </div>
         <div className="hidden sm:block image">

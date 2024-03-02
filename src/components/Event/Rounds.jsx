@@ -1,23 +1,27 @@
 import React from "react";
 import Timeline from "./Timeline";
 
-function Rounds() {
+function Rounds(props) {
+  console.log(props.details);
   return (
     <div className="flex mt-12">
       <Timeline color="from-white" />
       <div className="flex flex-col w-full sm:flex-row">
         <div className="w-11/12 sm:w-7/12">
-          <div className="text-sm text-green-400 ">Event</div>
+          <div className="text-sm text-green-400 ">Know More</div>
           <div className="text-6xl pb-12">Event Rounds</div>
-          <div className="image">
-            {/* <img
-              src={ByteLogo}
-              alt="Byte Me"
-              className="sm:hidden -mt-[40px]"
-            /> */}
-          </div>
           <span className="w-11/12 block pb-10">
-            <div className="text-2xl font-semibold">Round 1</div>
+            {props.details?.round?.map((round, index) => (
+              <div key={index}>
+                <div className="text-2xl mt-6 font-semibold">{round.title}</div>
+                <ul className="list-disc">
+                  {round?.details?.map((detail, index) => (
+                    <li key={index}>{detail}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            {/* <div className="text-2xl font-semibold">Round 1</div>
             <ul className="list-disc">
               <li>OSInt stands for Open Source Intelligence.</li>
               <li>
@@ -51,7 +55,7 @@ function Rounds() {
                 Teams are allowed to use Google or any other platform to find
                 the answers to the challenges.
               </li>
-            </ul>
+            </ul> */}
           </span>
         </div>
         <div className="hidden sm:block image">

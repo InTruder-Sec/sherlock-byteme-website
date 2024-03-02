@@ -1,8 +1,7 @@
 import React from "react";
-import ByteLogo from "../../assets/images/byteme-logo.png";
 import Timeline from "./Timeline";
 
-function HeadLine({ details }) {
+function HeadLine({ details, handleClick }) {
   return (
     <div className="flex mt-12">
       <Timeline color="from-green-400" />
@@ -12,18 +11,21 @@ function HeadLine({ details }) {
           <div className="text-6xl pb-12">{details?.title}</div>
           <div className="image">
             <img
-              src={ByteLogo}
+              src={details.logo}
               alt="Byte Me"
               className="sm:hidden -mt-[40px]"
             />
           </div>
           <span className="w-8/12">{details?.description}</span>
-          <button className="bg-green-600 text-white px-4 py-2 my-12 block rounded-sm hover:bg-green-900 duration-500">
+          <button
+            className="bg-green-600 text-white px-4 py-2 my-12 block rounded-sm hover:bg-green-900 duration-500"
+            onClick={handleClick}
+          >
             Register Now
           </button>
         </div>
         <div className="hidden sm:block image">
-          <img src={ByteLogo} alt="Byte Me" className="w-4/6" />
+          <img src={details.logo} alt="Byte Me" className="w-4/6" />
         </div>
       </div>
     </div>
