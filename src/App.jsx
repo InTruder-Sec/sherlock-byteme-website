@@ -15,7 +15,7 @@ function App() {
         <div className="relative -z-10">
           <Background />
         </div>
-        <div className="App static z-50 text-white">
+        <div className="App static z-20 text-white">
           <Navbar />
 
           <Routes>
