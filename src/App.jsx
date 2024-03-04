@@ -10,10 +10,40 @@ import Background from "./components/global/Background";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import Verify from "./components/global/Verify";
+import "./App.css";
+import OwaspLogo from "./assets/images/logo-main.png";
+import { useEffect, useRef } from "react";
+import Particles from "./components/global/Particles";
 
 function App() {
+  const reffer = useRef(null);
+  const animation = useRef(null);
+  // For 8 seconds disable scrolling
+
+  useEffect(() => {
+    setTimeout(() => {
+      reffer.current.style.overflow = "visible";
+      animation.current.style.display = "none";
+    }, 8000);
+  }, []);
+
   return (
-    <div className="relative z-0 bg-black w-screen h-screen">
+    <div
+      className="relative z-0 bg-black w-screen h-screen overflow-hidden"
+      ref={reffer}
+    >
+      <div className="absolute z-50 w-screen h-screen" ref={animation}>
+        <Particles />
+        <div class="heading text-center z-20">
+          <h1 className="heading__main text-6xl font-extrabold -mt-24 sm:text-6xl">
+            This ANANTYA 2024
+          </h1>
+          <img className="heading__logo" src={OwaspLogo} alt="" />
+          <h2 className="heading__secondary font-extrabold text-6xl">
+            PRESENTS
+          </h2>
+        </div>
+      </div>
       <BrowserRouter>
         <div className="relative -z-10">
           <Background />

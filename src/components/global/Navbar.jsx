@@ -40,7 +40,7 @@ function Navbar() {
         </div>
       </div>
       {/* Hamburger */}
-      <div className="sm:hidden z-50 fixed top-0 w-full bg-black text-white p-4">
+      <div className="sm:hidden z-40 fixed top-0 w-full bg-black text-white p-4">
         <div className="w-full h-full flex justify-between items-center bg-black">
           <div className="logo">
             <img src={logo} alt="OWASP PCCOE" className="w-[135px] h-[50px]" />
