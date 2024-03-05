@@ -22,7 +22,17 @@ const RegisterEvent = async (req, res) => {
         if (body.registrationDetails.emails[2] !== undefined) {
           Tokens.push(body.registrationDetails.emails[2].token);
         }
-        Sendmail(emails, Tokens, body.registrationDetails.teamname);
+        let inviteLink = "";
+        if (body.eventName === "Sherlock")
+          inviteLink = "https://chat.whatsapp.com/LqaAFiHoFj32bW7zWrenid";
+        else inviteLink = "https://chat.whatsapp.com/Dl0hyMGA5lhELiDryvi4NU";
+        Sendmail(
+          emails,
+          Tokens,
+          body.registrationDetails.teamname,
+          body.eventName,
+          inviteLink
+        );
         res.send({
           key: 200,
           message:

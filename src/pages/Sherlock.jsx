@@ -12,7 +12,7 @@ import SherlockRulebook from "./../assets/Rulebooks/Sherlock.pdf";
 const sherlock = {
   title: "Sherlock 2.0",
   description:
-    "Engage in a thrilling treasure hunt adventure! Navigate through a quiz, role-switching scenarios, and a QR-coded treasure hunt. Safeguard hints, decode challenges, and compete for victory. Unleash your cyber skills in this immersive challenge.",
+    "A group of hackers have launched a brazen attack on an organization. As members of Team OWASP, we have taken up the challenge to delve into the depths of this cybercrime and track down the perpetrator. Each clue and hint uncovered in this intricate web of deceit brings us one step closer to identifying and apprehending the hacker behind this malicious act. Our mission rests on keen observation, perceptive analysis, and collaborative effort as we navigate through the digital labyrinth to ensure justice prevails.",
   logo: SherlockLogo,
   prizes: [
     "1st Prize: Rs.5000/-",
