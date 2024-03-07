@@ -12,7 +12,7 @@ const Sendmail = async (emails, token, teamName) => {
 
   emails.map(async (email, index) => {
     const templateSlug = {
-      link: `http://localhost:3000/verify?token=${token[index]}`,
+      link: `https://owasppccoe.vercel.app/verify?token=${token[index]}`,
       teamname: teamName,
     };
     const data = {

@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HeadLine from "../components/Event/HeadLine";
 import SherlockLogo from "./../assets/images/sherlock.png";
 import Rulebook from "../components/Event/Rulebook";
 import Prizes from "../components/Event/Prizes";
 import Rounds from "../components/Event/Rounds";
-import Contact from "../components/Event/Contact";
 import { useRef } from "react";
+import Coordinators from "../components/Event/Coordinators";
+import Registration from "../components/Event/RegistrationSherlock";
 
 const sherlock = {
   title: "Sherlock 2.0",
@@ -49,10 +50,26 @@ const sherlock = {
       ],
     },
   ],
+  Coordinators: [
+    {
+      name: "Mrunal Chopade",
+      phone: "+91 8080059264",
+      email: "mrunal.chopade22@pccoepune.org",
+    },
+    {
+      name: "Visesh Chauhan",
+      phone: "+91 7620767941",
+      email: "visesh.chauhan22@pccoepune.org",
+    },
+  ],
 };
 
 function Sherlock() {
   const ref = useRef(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleClick = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
@@ -64,7 +81,8 @@ function Sherlock() {
       <Rulebook rules={sherlock.rules} />
       <Prizes details={sherlock} />
       <Rounds details={sherlock} />
-      <Contact reffer={ref} />
+      <Registration reffer={ref} />
+      <Coordinators coordinators={sherlock.Coordinators} />
     </div>
   );
 }

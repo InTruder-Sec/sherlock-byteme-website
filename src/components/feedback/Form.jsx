@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { ENDPOINT } from "../../main";
+import { Loader2 } from "lucide-react";
+import { toast } from "react-toastify";
 
 function Form() {
   const [formData, setformData] = useState({
@@ -7,7 +10,46 @@ function Form() {
     feedback: "",
   });
 
-  const [isSubmitted, setisSubmitted] = useState(false);
+  const [isLoading, setisLoading] = useState("");
+
+  const submitForm = (e) => {
+    e.preventDefault();
+    setisLoading(true);
+    if (
+      formData.name === "" ||
+      formData.email === "" ||
+      formData.feedback === ""
+    ) {
+      toast.error("Please fill all the fields", {
+        position: "bottom-right",
+      });
+
+      setisLoading(false);
+      return;
+    }
+    console.log(formData);
+    fetch(`${ENDPOINT}api/feedback`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.success) {
+          toast.success("Feedback submitted successfully", {
+            position: "bottom-right",
+          });
+        } else {
+          toast.error("Error in submitting feedback", {
+            position: "bottom-right",
+          });
+        }
+        setisLoading(false);
+      });
+  };
 
   return (
     <div className="w-screen pt-32">
@@ -46,9 +88,18 @@ function Form() {
               }
             />
           </div>
-          <button className="w-full border border-green-400 hover:bg-green-400 hover:text-black duration-300 text-white p-2 rounded-lg my-4">
-            Submit
-          </button>
+          {isLoading ? (
+            <button className="w-full border border-green-400 hover:bg-green-400 hover:text-black duration-300 text-white p-2 rounded-lg my-4 flex justify-center items-center">
+              <Loader2 className="animate-spin" />
+            </button>
+          ) : (
+            <button
+              className="w-full border border-green-400 hover:bg-green-400 hover:text-black duration-300 text-white p-2 rounded-lg my-4"
+              onClick={submitForm}
+            >
+              Submit
+            </button>
+          )}
         </form>
       </div>
     </div>

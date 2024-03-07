@@ -3,7 +3,7 @@ import Event from "../models/Event.js";
 
 const RegisterEvent = async (req, res) => {
   const body = req.body;
-  console.log(body);
+  console.log(body.emails);
   try {
     Event.create(body)
       .then((data) => {
@@ -12,7 +12,7 @@ const RegisterEvent = async (req, res) => {
           body.registrationDetails.emails[0].email,
           body.registrationDetails.emails[1].email,
         ];
-        if (body.registrationDetails.member3 !== undefined) {
+        if (body.registrationDetails?.member3 !== "") {
           emails.push(body.registrationDetails.emails[2].email);
         }
         let Tokens = [

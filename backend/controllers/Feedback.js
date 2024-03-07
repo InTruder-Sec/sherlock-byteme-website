@@ -10,13 +10,13 @@ const FeedbackRoute = (req, res) => {
   try {
     FeedbackSchema.create(data)
       .then((response) => {
-        res.status(200).send("Feedback submitted successfully");
+        res.status(200).json({ success: true });
       })
       .catch((error) => {
-        res.status(500).send("Internal Server Error");
+        res.status(500).json({ success: false });
       });
   } catch (error) {
-    res.status(500).send("Internal Server Error");
+    res.status(500).json({ success: false });
   }
 
   return;

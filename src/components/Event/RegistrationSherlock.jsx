@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { ENDPOINT } from "./../../main";
 import Timeline from "./Timeline";
+import { ENDPOINT } from "../../main";
 import { toast } from "react-toastify";
 import { Loader2 } from "lucide-react";
 import PaymentQR from "./../../assets/images/payment.jpeg";
 
 function Registration({ reffer }) {
-  const [AddMember, setAddMember] = useState(false);
   const [isLoading, setisLoading] = useState(false);
 
   const [formData, setformData] = useState({
@@ -23,10 +22,8 @@ function Registration({ reffer }) {
 
   const submitForm = (e) => {
     if (isLoading) return;
-
     e.preventDefault();
     setisLoading(true);
-
     if (
       formData.teamname === "" ||
       formData.teamleader === "" ||
@@ -62,10 +59,9 @@ function Registration({ reffer }) {
       registrationDetails: {
         ...formData,
       },
-      eventName: "Byte Me",
+      eventName: "Sherlock",
       transactionId: transactionId,
     };
-    // Request to ENDPOINT/API/REGISTER
     fetch(`${ENDPOINT}api/register`, {
       method: "POST",
       headers: {
@@ -132,7 +128,6 @@ function Registration({ reffer }) {
               }
             />
           </div>
-
           <div className="my-4">
             <label className="block mt-4 text-sm">Team Leader Phone:</label>
             <input
@@ -167,45 +162,7 @@ function Registration({ reffer }) {
               }
             />
           </div>
-          <div className="my-4 ">
-            <div
-              placeholder="Add Member(Optional)"
-              className={`w-full border cursor-pointer text-center py-2 border-green-400 hover:bg-green-400 hover:text-black duration-300 text-white p-2 rounded-lg my-4 ${
-                AddMember ? "hidden" : "block"
-              } `}
-              onClick={() => setAddMember(!AddMember)}
-            >
-              Add Member
-            </div>
-          </div>
-          <div className={`optional params ${AddMember ? "block" : "hidden"}`}>
-            <div className="my-4">
-              <label className="block mt-4 text-sm">
-                Team 3rd Member Name:
-              </label>
-              <input
-                type="text"
-                className="w-full p-2  bg-neutral-950 px-4 my-1 rounded-lg text-sm border-2 focus:border-green-400 focus:outline-none"
-                placeholder="Enter your name"
-                onChange={(e) =>
-                  setformData({ ...formData, member3: e.target.value })
-                }
-              />
-            </div>
-            <div className="my-4">
-              <label className="block mt-4 text-sm">
-                Team 3rd Member Email:
-              </label>
-              <input
-                type="text"
-                className="w-full p-2  bg-neutral-950 px-4 my-1 rounded-lg text-sm border-2 focus:border-green-400 focus:outline-none"
-                placeholder="example@gmail.com"
-                onChange={(e) =>
-                  setformData({ ...formData, member3Email: e.target.value })
-                }
-              />
-            </div>
-          </div>
+
           <div className="my-4">
             {/* Qr code for payment */}
             <div className="text-2xl text-green-400">Payment</div>
