@@ -21,7 +21,10 @@ const VerifyToken = async (req, res) => {
     const event = await Event.findOne({ verificationToken: teamToken });
 
     if (!event) {
-      res.status(400).send("Invalid token");
+      res.status(400).json({
+        key: 400,
+        message: "Invalid token",
+      });
       return;
     }
 
@@ -30,52 +33,67 @@ const VerifyToken = async (req, res) => {
     );
     if (emailIndex === -1) {
       console.log("No email found");
-      res.status(400).send("Invalid token");
+      res.status(400).json({
+        key: 400,
+        message: "Invalid token",
+      });
       return;
     }
     if (event.registrationDetails.emails[emailIndex].isVerifed) {
-      res.status(200).send("Email already verified");
+      res.status(200).json({
+        key: 200,
+        message: "Email already verified",
+      });
       return;
-    }
-    if (
-      event.registrationDetails.emails[emailIndex].token.split("/")[2] !==
-      emailToken
-    ) {
-      console.log(
-        event.registrationDetails.emails[emailIndex].token,
-        emailToken
-      );
-      console.log("Token mismatch");
-      res.status(400).send("Invalid token");
-      return;
-    }
-
-    event.registrationDetails.emails[emailIndex].isVerifed = true;
-    const isAllVerified = event.registrationDetails.emails.every(
-      (emailObj) => emailObj.isVerifed
-    );
-    if (isAllVerified) {
-      await Event.updateOne(
-        {
-          verificationToken: teamToken,
-        },
-        {
-          isVerifed: true,
-        }
-      );
     } else {
-      await Event.updateOne(
-        {
-          verificationToken: teamToken,
-        },
-        {
-          registrationDetails: event.registrationDetails,
-        }
+      if (event.registrationDetails.emails[emailIndex].token !== token) {
+        console.log(
+          event.registrationDetails.emails[emailIndex].token,
+          emailToken
+        );
+        console.log("Token mismatch");
+        res.status(400).json({
+          key: 400,
+          message: "Invalid token",
+        });
+        return;
+      }
+
+      event.registrationDetails.emails[emailIndex].isVerifed = true;
+      const isAllVerified = event.registrationDetails.emails.every(
+        (emailObj) => emailObj.isVerifed
       );
+      if (isAllVerified) {
+        await Event.updateOne(
+          {
+            verificationToken: teamToken,
+          },
+          {
+            isVerifed: true,
+          }
+        );
+      } else {
+        await Event.updateOne(
+          {
+            verificationToken: teamToken,
+          },
+          {
+            registrationDetails: event.registrationDetails,
+          }
+        );
+      }
+      res.status(200).json({
+        key: 200,
+        message: "Email verified successfully",
+      });
+      return;
     }
-    res.status(200).send("Email verified successfully");
   } catch (error) {
-    res.status(500).send("Internal Server Error");
+    res.status(500).json({
+      key: 500,
+      message: "Internal server error",
+    });
+    return;
   }
   return;
 };

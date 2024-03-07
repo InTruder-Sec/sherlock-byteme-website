@@ -2,7 +2,6 @@ import React from "react";
 import Timeline from "./Timeline";
 
 function Rounds(props) {
-  console.log(props.details);
   return (
     <div className="flex mt-12">
       <Timeline color="from-white" />

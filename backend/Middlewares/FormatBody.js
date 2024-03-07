@@ -3,13 +3,15 @@ const FormatBody = (req, res, next) => {
 
   const body = req.body;
 
-  const token = Math.random().toString(36).substring(2, 18);
+  let token = Math.random().toString(36).substring(2, 18);
+  token = token + Math.random().toString(36).substring(2, 18);
   const mailToken =
     token +
     "/" +
     body.registrationDetails.teamleaderEmail +
     "/" +
     Math.random().toString(36).substring(2, 10);
+
   const mailToken2 =
     token +
     "/" +
@@ -53,7 +55,7 @@ const FormatBody = (req, res, next) => {
     transactionId: body.transactionId,
   };
 
-  if (body.registrationDetails.member3 === undefined) {
+  if (body.registrationDetails.member3 === "") {
     // delete 3rd member from array
     event.registrationDetails.emails.pop();
   }
