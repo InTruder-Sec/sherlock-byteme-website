@@ -20,9 +20,7 @@ function Form() {
       formData.email === "" ||
       formData.feedback === ""
     ) {
-      toast.error("Please fill all the fields", {
-        position: "bottom-right",
-      });
+      toast.error("Please fill all the fields", {});
 
       setisLoading(false);
       return;
@@ -39,13 +37,12 @@ function Form() {
       .then((data) => {
         console.log(data);
         if (data.success) {
-          toast.success("Feedback submitted successfully", {
-            position: "bottom-right",
-          });
+          toast.success(
+            "Feedback submitted successfully! Our team will get back to you shortly.",
+            {}
+          );
         } else {
-          toast.error("Error in submitting feedback", {
-            position: "bottom-right",
-          });
+          toast.error("Error in submitting feedback", {});
         }
         setisLoading(false);
       });
