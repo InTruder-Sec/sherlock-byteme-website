@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Timeline from "./Timeline";
 import { ENDPOINT } from "../../main";
 import { toast } from "react-toastify";
-import { Loader2 } from "lucide-react";
+import { ArrowDownToLine, Copy, Loader2 } from "lucide-react";
 import PaymentQR from "./../../assets/images/payment.jpeg";
 
 function Registration({ reffer }) {
@@ -32,9 +32,7 @@ function Registration({ reffer }) {
       formData.member2 === "" ||
       formData.member2Email === ""
     ) {
-      toast.error("Please fill all the fields", {
-        position: "bottom-right",
-      });
+      toast.error("Please fill all the fields", {});
       setisLoading(false);
       return;
     }
@@ -46,10 +44,7 @@ function Registration({ reffer }) {
     ) {
       if (transactionId === "") {
         toast.error(
-          "One or more emails are not from pccoe! Please pay the fees and add transaction ID.",
-          {
-            position: "bottom-right",
-          }
+          "One or more emails are not from pccoe! Please pay the fees and add transaction ID."
         );
         setisLoading(false);
         return;
@@ -72,13 +67,9 @@ function Registration({ reffer }) {
       .then((res) => res.json())
       .then((data) => {
         if (data.key === 200) {
-          toast.success(data.message, {
-            position: "bottom-right",
-          });
+          toast.success(data.message, {});
         } else {
-          toast.error(data.message, {
-            position: "bottom-right",
-          });
+          toast.error(data.message, {});
         }
         setisLoading(false);
       })
@@ -170,12 +161,37 @@ function Registration({ reffer }) {
               Please pay RS 25/- per person if you are not a student of PCCOE.
             </div>
             <div className="flex flex-col justify-center items-center">
-              <div className="text-sm bg-white w-fit p-3">
+              <div className="text-sm  w-fit p-3 flex">
                 <img
                   src={PaymentQR}
                   className="w-40"
                   alt="Failed to load! please try again!"
                 />
+                {/* Download and upi id copy buttons */}
+                <div className="flex flex-col ">
+                  <a href={PaymentQR} download="payment.jpeg">
+                    <div className="text-sm border rounded-md p-1 ml-3 hover:text-black hover:bg-white">
+                      <ArrowDownToLine size={16} />
+                    </div>
+                  </a>
+
+                  <div
+                    className="text-sm border rounded-md p-1 ml-3 hover:text-black hover:bg-white mt-3"
+                    onClick={() => {
+                      try {
+                        navigator.clipboard.writeText(
+                          "mrunalchopade2003@oksbi"
+                        );
+                        toast.success("UPI ID copied successfully!", {});
+                      } catch (err) {
+                        toast.error("Failed to copy UPI ID!", {});
+                        console.error(err);
+                      }
+                    }}
+                  >
+                    <Copy size={16} />
+                  </div>
+                </div>
               </div>
               <div className="font-bold">mrunalchopade2003@oksbi</div>
             </div>
