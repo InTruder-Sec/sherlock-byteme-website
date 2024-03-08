@@ -7,46 +7,67 @@ import Rounds from "../components/Event/Rounds";
 import { useRef } from "react";
 import Coordinators from "../components/Event/Coordinators";
 import Registration from "../components/Event/RegistrationSherlock";
+import SherlockRulebook from "./../assets/Rulebooks/Sherlock.pdf";
 
 const sherlock = {
   title: "Sherlock 2.0",
   description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis deleniti nemo quod consequuntur asperiores perspiciatis pariatur culpa amet, veritatis harum, dolore ipsum ab aperiam quos ut aliquam? Quae, molestias! Vitae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea ex incidunt ipsum itaque ad! Quo ullam, nesciunt quas voluptatem iure rem omnis assumenda, vel, facilis corrupti debitis. Veritatis, at eos?",
+    "Engage in a thrilling treasure hunt adventure! Navigate through a quiz, role-switching scenarios, and a QR-coded treasure hunt. Safeguard hints, decode challenges, and compete for victory. Unleash your cyber skills in this immersive challenge.",
   logo: SherlockLogo,
   prizes: [
-    "1st: 3200",
-    "2nd: 2000",
-    "3rd: 1000",
-    "+ Goodies for all participants",
+    "1st Prize: Rs.5000/-",
+    "2nd Prize: Rs.4000/-",
+    "3rd Prize: Rs.3000/-",
+    "+ Goodies for participants",
   ],
   rules: {
     rule: [
-      "Each player must stick with the team they're registered with throughout the event.",
-      "Players from eliminated teams can't join any other qualified team for the final round.",
-      "Teams need to stick to the time limits for each round.",
-      "The organizing committee's decisions are final, and any misbehavior toward them will result in the entire team being disqualified.",
-      "Each team mush have minimum of 2 and maximum of 3 students.",
+      "Event will include 3 rounds.",
+      "Each team will consist of not more or less than 2 players.",
+      "Participants must bring a pen and paper for rough work for round 2.",
+      "No Change of teammates will be allowed.",
+      "Failure of teammates to reach on time may lead to disqualification.",
+      "From all the participating teams only 32 teams will progress to round 2.",
+      "Top 8 teams will progress to the final round.",
+      "Any malpractice or violation of the instructions given would lead to immediate Disqualification.",
+      "The event organizers reserve the right to disqualify any participant or team that violates the event rules or fails to follow instructions.",
+      "The final Decision of results made by organizers will be final.",
     ],
-    link: "",
+    link: SherlockRulebook,
   },
   round: [
     {
-      title: "Round 1",
+      title: "Round 1 | You can't catch me",
       details: [
-        "OSInt stands for Open Source Intelligence.",
-        "This round will be an OSInt Round featuring questions related to core computer science subjects.",
-        "Each team must solve the challenges within the specified format and time limit on the provided platform (CTFd).",
-        "The top 20 teams with the highest scores will qualify for round 2.",
-        "Teams are allowed to use Google or any other platform to find the answers to the challenges.",
+        "Round 1 includes a careful understanding of a video which is forwarded by the hacker.",
+        "Initially 5 mins will be given to watch the video.",
+        "Video will be shown on a projector after which participants have to answer a quiz on the Slido platform which would be based on the points described by the hacker in the video.",
+        "30 seconds will be provided to answer each question.",
+        "The teams will be evaluated by the speed and accuracy they showcase in this round.",
       ],
     },
     {
-      title: "Round 2",
+      title: "Round 2 | Death or Glory",
       details: [
-        "This round will be a challenge solving round.",
-        "The top 20 teams from the first round will tackle the provided challenge.",
-        "The challenges will include additional categories along with those from the first round.",
-        "Teams are allowed to use Google or any other platform to find the answers to the challenges.",
+        "32 teams will be merged to 16 teams each team consisting of 4 members.",
+        "Now these teams will be divided into two Groups red and blue.",
+        "Each team will consist of 8 teams.",
+        "They will create a problem statement which would lead them to a place on our campus.",
+        "These problem statements will be checked by our Sherlock Volunteers for confirming correctness and authenticity of the Statement.",
+        "This Confirmation will be called as a meeting.",
+        "Members can take only 3 meetings in total with the team.",
+        "Any incorrect description would lead to negative marking as per the marking scheme as follows.",
+        "The teams will now be broken down to their original form. i.e. The original form of their team of 2 members each.",
+      ],
+    },
+    {
+      title: "Round 3 | Maze Runner",
+      details: [
+        "As the qualified teams embark on their mission, they must navigate the campus to uncover the hacker hidden within the walls of the college, where every shadow conceals a potential digital adversary.",
+        "The teams will be provided with the initial hint which would lead them to an initial QR.",
+        "After this they have to solve the riddles placed in the successive QR which would lead them to the ultimate location of the hacker.",
+        "At the location there would be a group of 3 hackers out of which only one is the real hacker.",
+        "The members' intelligence and presence of mind would lead them to a perfect win.",
       ],
     },
   ],
