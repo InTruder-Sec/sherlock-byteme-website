@@ -55,12 +55,12 @@ const byteme = {
     {
       name: "Omkar Pote",
       phone: "+91 9324040823",
-      email: "omkarpote21@pccoepune.org",
+      email: "omkar.pote21@pccoepune.org",
     },
     {
       name: "Deep Dhakate",
       phone: "+91 9022244068",
-      email: "dhakatedeep21@pccoepune.org",
+      email: "deep.dhakate21@pccoepune.org",
     },
   ],
 };
