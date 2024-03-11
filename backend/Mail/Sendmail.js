@@ -1,7 +1,7 @@
 import FormData from "form-data";
 import Mailgun from "mailgun.js";
 
-const Sendmail = async (emails, token, teamName) => {
+const Sendmail = async (emails, token, teamName, eventName, inviteLink) => {
   const mailgun = new Mailgun(FormData);
   const mg = mailgun.client({
     username: "api",
@@ -14,6 +14,8 @@ const Sendmail = async (emails, token, teamName) => {
     const templateSlug = {
       link: `https://owasppccoe.vercel.app/verify?token=${token[index]}`,
       teamname: teamName,
+      eventName: eventName,
+      inviteLink: inviteLink,
     };
     const data = {
       from: "OWASP PCCOE Student Chapter <owasppccoe@gmail.com>",
@@ -23,6 +25,8 @@ const Sendmail = async (emails, token, teamName) => {
       "h:X-Mailgun-Variables": JSON.stringify({
         link: templateSlug.link,
         teamname: templateSlug.teamname,
+        eventName: templateSlug.eventName,
+        inviteLink: templateSlug.inviteLink,
       }),
     };
 
