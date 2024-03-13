@@ -4,7 +4,7 @@ import Home from "./pages/Landing";
 import Byteme from "./pages/Byteme";
 import Sherlock from "./pages/Sherlock";
 import Feedback from "./pages/Feedback";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import Navbar from "./components/global/Navbar";
 import Background from "./components/global/Background";
 import "react-toastify/dist/ReactToastify.css";
