@@ -8,7 +8,7 @@ function HeadLine({ details, handleClick }) {
       <div className="flex flex-col sm:flex-row">
         <div className="w-11/12 sm:w-7/12">
           <div className="text-sm text-green-400 ">Event</div>
-          <div className="text-6xl pb-12">{details?.title}</div>
+          <div className="text-6xl pb-12 font-medium">{details?.title}</div>
           <div className="image">
             <img
               src={details.logo}

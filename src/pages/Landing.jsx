@@ -5,7 +5,7 @@ import { Code, Search } from "lucide-react";
 
 function Home() {
   return (
-    <div className="pt-32 text-center text-4xl px-4 z-50">
+    <div className="pt-32 text-center text-4xl px-4 font-semibold z-50">
       This Anantya OWASP PCCOE <br />
       <div className="text-2xl">Presents</div>
       <div>

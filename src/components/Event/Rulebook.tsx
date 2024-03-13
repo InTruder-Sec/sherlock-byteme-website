@@ -8,7 +8,7 @@ function Rulebook({ rules }) {
       <div className="flex flex-col sm:flex-row">
         <div className="w-11/12 sm:w-8/12">
           <div className="text-sm text-green-400 ">Be Ethical</div>
-          <div className="text-6xl pb-12">Rule Book</div>
+          <div className="text-6xl pb-12 font-medium">Rule Book</div>
           <div className="image"></div>
           <span className="">
             <ul className="list-disc">

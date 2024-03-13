@@ -8,7 +8,7 @@ function Rounds(props) {
       <div className="flex flex-col w-full sm:flex-row">
         <div className="w-11/12 sm:w-7/12">
           <div className="text-sm text-green-400 ">Know More</div>
-          <div className="text-6xl pb-12">Event Rounds</div>
+          <div className="text-6xl pb-12 font-medium">Event Rounds</div>
           <span className="w-11/12 block pb-10">
             {props.details?.round?.map((round, index) => (
               <div key={index}>

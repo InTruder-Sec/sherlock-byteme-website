@@ -8,7 +8,7 @@ function Prizes(props) {
       <div className="flex flex-col sm:flex-row w-full">
         <div className="w-11/12 sm:w-7/12">
           <div className="text-sm text-green-400 ">Worried about rewards?</div>
-          <div className="text-6xl pb-12">Prizes</div>
+          <div className="text-6xl pb-12 font-medium">Prizes</div>
           <div className="image">
             {/* <img
               src={ByteLogo}
