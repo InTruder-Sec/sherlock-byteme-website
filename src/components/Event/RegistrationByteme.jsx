@@ -89,7 +89,7 @@ function Registration({ reffer }) {
       <Timeline color="from-green-400" />
       <div className="w-8/12 pt-12">
         <div className="text-sm text-green-400 ">See you soon</div>
-        <div className="text-6xl pb-6">Register Now</div>
+        <div className="text-6xl pb-6 font-medium">Register Now</div>
         <form>
           <div className="my-4">
             <label className="block mt-4 text-sm">Team Name:</label>

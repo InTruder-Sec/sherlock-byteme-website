@@ -24,8 +24,16 @@ function App() {
     setTimeout(() => {
       reffer.current.style.overflow = "visible";
       animation.current.style.display = "none";
-    }, 8000);
+    }, 5000);
   }, []);
+
+  // get current path and if the path is /verify disable none animation ref
+  useEffect(() => {
+    if (window.location.pathname === "/verify") {
+      reffer.current.style.overflow = "visible";
+      animation.current.style.display = "none";
+    }
+  });
 
   return (
     <div

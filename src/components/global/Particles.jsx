@@ -15,14 +15,14 @@ function Particles() {
     window.particlesJS("particles-js", {
       particles: {
         number: {
-          value: 300,
+          value: 400,
           density: {
             enable: true,
             value_area: 800,
           },
         },
         size: {
-          value: 6,
+          value: 3,
           random: false,
           anim: {
             enable: false,
