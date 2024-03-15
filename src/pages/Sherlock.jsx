@@ -49,15 +49,8 @@ const sherlock = {
     {
       title: "Round 2 | Death or Glory",
       details: [
-        "32 teams will be merged to 16 teams each team consisting of 4 members.",
-        "Now these teams will be divided into two Groups red and blue.",
-        "Each team will consist of 8 teams.",
-        "They will create a problem statement which would lead them to a place on our campus.",
-        "These problem statements will be checked by our Sherlock Volunteers for confirming correctness and authenticity of the Statement.",
-        "This Confirmation will be called as a meeting.",
-        "Members can take only 3 meetings in total with the team.",
-        "Any incorrect description would lead to negative marking as per the marking scheme as follows.",
-        "The teams will now be broken down to their original form. i.e. The original form of their team of 2 members each.",
+        "Part 1: The 32 teams merge into 16, each comprising 4 members, with three under hacker control. One member from each team embarks on a mission to free their teammates by solving hacker-provided questions via email, revealing captive locations. The top 8 teams, each with 4 members, advance.",
+        "Part 2: The 8 teams split into 16 pairs with 2 members each, categorized into red and blue groups. Teams decipher symbols in a file, aiming for a specific number of correct answers within a maximum of 3 meetings. Evaluation is based on correct answers, meeting frequency, and timing of the third meeting. Eight teams progress from each group, while two earn Wild Card entries based on the outlined criteria.",
       ],
     },
     {

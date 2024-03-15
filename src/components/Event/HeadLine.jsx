@@ -18,7 +18,7 @@ function HeadLine({ details, handleClick }) {
           </div>
           <span className="w-8/12">{details?.description}</span>
           <button
-            className="bg-green-600 text-white px-4 py-2 my-12 block rounded-sm hover:bg-green-900 duration-500"
+            className="bg-green-600 text-white px-4 py-2 my-12 block font-medium rounded-sm hover:bg-green-900 duration-500"
             onClick={handleClick}
           >
             Register Now
